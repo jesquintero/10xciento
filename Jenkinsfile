@@ -3,19 +3,25 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                sh "mvn clean"
+                mvn wrapper:wrappe
+                sh  "chmod +x mvnw"
+                sh "mvnw clean"
             }
         }
 
         stage('Compile') {
             steps {
-                sh "mvn compile"
+                mvn wrapper:wrappe
+                sh  "chmod +x mvnw"
+                sh "mvnw compile"
             }
         }
 
         stage('Test') {
             steps {
-                sh "mvn test"
+                mvn wrapper:wrappe
+                sh  "chmod +x mvnw"
+                sh "mvnw test"
             }
         }
     }
